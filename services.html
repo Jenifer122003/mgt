@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MGT Solutions - Our Services</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: white;
+      color: #1a4a6f;
+      margin: 0; padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 700px;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 40px rgba(26,74,111,0.15);
+      background: #f8fafc;
+      animation: fadeInScale 1s ease forwards;
+    }
+    h1 {
+      margin-bottom: 30px;
+      font-size: 2.8em;
+      text-align: center;
+      color: #21808d;
+      letter-spacing: 1.5px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      font-size: 1.4em;
+      padding: 15px 0;
+      border-bottom: 1px solid #ddd;
+      transition: background-color 0.3s ease;
+    }
+    li a {
+      color: #32b8c6;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    li a:hover {
+      text-decoration: underline;
+    }
+    li:not(:last-child):hover {
+      background-color: #e6f2f8;
+    }
+    .back-link {
+      display: block;
+      margin-top: 40px;
+      text-align: center;
+      font-weight: 600;
+      color: #21808d;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .back-link:hover {
+      color: #32b8c6;
+    }
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Explore Our Services</h1>
+    <ul>
+      <li><a href="talent.html">Talent Acquisition and Management</a></li>
+      <li>IT Project Implementation</li>
+      <li>Cyber Security Audit</li>
+      <li>Data Analytics</li>
+      <li>Consultancy Services</li>
+    </ul>
+    <a href="index.html" class="back-link">Back to Introduction</a>
+  </div>
+</body>
+</html>
