@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Thank You</title>
+    <style>
+        :root{
+            --bg:#0f1724;
+            --card:#0b1220;
+            --accent:#22c55e;
+            --muted:#94a3b8;
+            --glass: rgba(255,255,255,0.04);
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0;
+            font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+            background:linear-gradient(180deg,#071028 0%, #0f1724 100%);
+            color:#e6eef8;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:32px;
+        }
+        .card{
+            width:100%;
+            max-width:700px;
+            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border:1px solid rgba(255,255,255,0.04);
+            border-radius:16px;
+            padding:36px;
+            box-shadow: 0 6px 30px rgba(2,6,23,0.6);
+            display:flex;
+            gap:24px;
+            align-items:center;
+        }
+        .icon{
+            flex:0 0 96px;
+            height:96px;
+            border-radius:12px;
+            background:linear-gradient(135deg, rgba(34,197,94,0.12), rgba(34,197,94,0.06));
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            position:relative;
+            overflow:visible;
+        }
+        .check{
+            width:56px;
+            height:56px;
+            border-radius:50%;
+            background:linear-gradient(180deg,var(--accent), #16a34a);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            box-shadow:0 6px 18px rgba(16,185,129,0.12), inset 0 -4px 8px rgba(0,0,0,0.15);
+        }
+        .check svg{width:28px; height:28px; color:white; filter:drop-shadow(0 2px 6px rgba(16,185,129,0.25))}
+        .content{flex:1}
+        h1{margin:0 0 6px 0;font-size:20px}
+        p{margin:0;color:var(--muted);line-height:1.4}
+        .actions{
+            margin-top:18px;
+            display:flex;
+            gap:12px;
+            align-items:center;
+        }
+        .btn{
+            appearance:none;
+            border:0;
+            padding:10px 14px;
+            border-radius:10px;
+            cursor:pointer;
+            font-weight:600;
+            color:#051023;
+            background:linear-gradient(90deg,#a7f3d0,#34d399);
+            box-shadow:0 6px 18px rgba(34,197,94,0.12);
+        }
+        .btn.secondary{
+            background:transparent;
+            color:var(--muted);
+            border:1px solid rgba(255,255,255,0.04);
+        }
+        .meta{font-size:13px;color:var(--muted);margin-top:10px}
+        /* simple confetti pieces */
+        .confetti{
+            position:absolute;
+            inset:0;
+            pointer-events:none;
+            overflow:visible;
+        }
+        .confetti span{
+            position:absolute;
+            width:8px;
+            height:12px;
+            background:var(--accent);
+            transform:translateY(-20px) rotate(15deg);
+            opacity:0;
+            animation:shoot 1200ms ease-out forwards;
+        }
+        .confetti span.c2{background:#60a5fa}
+        .confetti span.c3{background:#f97316}
+        @keyframes shoot{
+            0%{opacity:0; transform:translateY(0) scale(0.6) rotate(0)}
+            30%{opacity:1}
+            100%{opacity:1; transform:translateY(160px) translateX(var(--x,0)) rotate(360deg) scale(1)}
+        }
+        @media (max-width:520px){
+            .card{flex-direction:column;align-items:flex-start}
+            .icon{width:84px;height:84px}
+        }
+    </style>
+</head>
+<body>
+    <main class="card" role="region" aria-label="Thank you message">
+        <div class="icon" aria-hidden="true">
+            <div class="check" title="Success">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 6L9 17l-5-5"></path>
+                </svg>
+            </div>
+            <div class="confetti" id="confetti"></div>
+        </div>
+
+        <div class="content">
+            <h1>Thank you</h1>
+            <p>Your submission was received successfully. We appreciate your input — it helps us improve.</p>
+            <div class="actions">
+                <button class="btn" id="doneBtn">Done</button>
+                <button class="btn secondary" id="backBtn">Back</button>
+            </div>
+            <div class="meta">If you need further assistance, reopen this page or contact support.</div>
+        </div>
+    </main>
+
+    <script>
+        // small confetti burst
+        (function burst(){
+            const container = document.getElementById('confetti');
+            if(!container) return;
+            const colors = ['c1','c2','c3'];
+            for(let i=0;i<14;i++){
+                const el = document.createElement('span');
+                el.className = colors[i%colors.length];
+                el.style.left = (12 + i*6) + 'px';
+                el.style.setProperty('--x', (Math.random()*80 - 40) + 'px');
+                el.style.animationDelay = (i*40) + 'ms';
+                container.appendChild(el);
+            }
+        })();
+
+        // buttons
+        document.getElementById('doneBtn').addEventListener('click', () => {
+            window.close?.() || alert('Done');
+        });
+        document.getElementById('backBtn').addEventListener('click', () => {
+            history.back();
+        });
+    </script>
+</body>
+</html></div>
